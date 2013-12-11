@@ -17,13 +17,15 @@ From the command line fetch the dependencies locally
 
 and then start the application
 
-    $node app
+    $ node app
 
-The application is now running at [http://localhost:8888/](http://localhost:8888/) and can serve get requests in JSON
+The application is now running at [http://localhost:8888/](http://localhost:8888/) and can serve GET requests in JSON
 
 - [http://localhost:8888/entity/23](http://localhost:8888/entity/23)
 - [http://localhost:8888/entity/91](http://localhost:8888/entity/91)
 - etc...
 
 just echoing back the provided entity code
+
+**[View commit](https://github.com/akutin/node-POC/commit/436b87bf165553fc9b9b041b33a65b7c500660cf)**
 
