@@ -53,3 +53,6 @@ and returns
 
 **[View commit](https://github.com/akutin/node-POC/commit/83e4d02276e2cd37cd61270a05ed7cbebe05fbc9)**
 
+## Persistence with MongoDB
+
+[Mongoose](http://mongoosejs.com/) is a MongoDB driver and object modelling module.

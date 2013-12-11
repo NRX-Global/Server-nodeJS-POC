@@ -1,30 +1,37 @@
 var restify = require('restify');
+var mongoose = require('mongoose');
+
+var db = require('./db');
+var LocationEntity = require('./location.js');
 
 function handleGet(req, res, next) {
     console.log( "Fetch by " + req.params.code);
-    var result = {
-        code: req.params.code
-    };
-    res.setH
-    res.send( result );
+    LocationEntity.findById(  new mongoose.Types.ObjectId(req.params.code), function (err, data) {
+        if(err) {
+            console.log( err)
+        }
+        if( data) {
+            res.send( data);
+        } else {
+            res.send( {});
+        }
+    })
 }
 
 function handlePost( req, res, next) {
     console.log( "Create " + req.body.erpCode);
-    var result = {
-        code: Math.random().toString(36),
+    var data = new LocationEntity({
         erpCode: req.body.erpCode,
         name: req.body.name,
         tag: req.body.tag
-    };
-
-    res.send(
-        201,
-        result,
-        {
-            "Location": "/entity/" + result.code
+    });
+    data.save( function(err, data) {
+        if( err) {
+            console.log( err);
         }
-    );
+        res.send( 201, data, { "Location": "/entity/" + data.id});
+        next( err);
+    });
 }
 
 var server = restify.createServer( { name: 'entityAPI' });
