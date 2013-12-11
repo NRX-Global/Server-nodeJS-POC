@@ -29,3 +29,25 @@ just echoing back the provided entity code
 
 **[View commit](https://github.com/akutin/node-POC/commit/436b87bf165553fc9b9b041b33a65b7c500660cf)**
 
+### Handle incoming data - create an entity
+
+After adding a POST handler on the server instance and enabling parsing of request. For testing I used REST Client bundled with
+IntelliJ. ```restify/entityPOST.xml``` can be imported there and executed. A sample request contains a data structure in the body
+
+```JavaScript
+    { "name": "Test entity", "erpCode": "ENT-001", "tag": "eq"}
+```
+
+and returns
+
+
+```
+    Content-Type: application/json
+    Content-Length: 81
+    Location: /entity/0.dzevauc0gmji3sor
+```
+
+```JavaScript
+    {"code":"0.dzevauc0gmji3sor","erpCode":"ENT-001","name":"Test entity","tag":"eq"}
+```
+
