@@ -56,3 +56,10 @@ and returns
 ## Persistence with MongoDB
 
 [Mongoose](http://mongoosejs.com/) is a MongoDB driver and object modelling module.
+
+The logic how to update object's fields could be placed on the model, keeping the service layer clean and simple. 'LocationEntity' model
+was introduced with Mongoose modelling and GET/POST methods now persist the data in MongoDB (which is supposed to run on your
+local computer with default port setting).
+
+As a next step PUT/DELETE were implemented and now it's a fully functional service to create, retrieve, update and delete an entity.
+
