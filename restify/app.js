@@ -18,6 +18,20 @@ function handleGet(req, res, next) {
     })
 }
 
+function handleGetList(req, res, next) {
+    console.log( "Get list");
+    LocationEntity.find( {}, function (err, list) {
+        if(err) {
+            console.log( err)
+            return next( err);
+        }
+        if( !list) {
+            list = [];
+        }
+        res.send( list.map( function(data) { return data.toObject()}));
+    });
+}
+
 function handlePost( req, res, next) {
     console.log( "Create " + req.body.erpCode);
     new LocationEntity().updateFrom( req.body).save( function(err, data) {
@@ -79,6 +93,7 @@ server.use(restify.bodyParser())
 server.post('/entity', handlePost);
 server.put('/entity/:code', handlePut);
 server.get('/entity/:code', handleGet);
+server.get('/entity', handleGetList);
 server.del('/entity/:code', handleDelete);
 
 server.listen(8888, function() {
