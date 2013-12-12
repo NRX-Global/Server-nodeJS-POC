@@ -1,5 +1,7 @@
 # node.js RESTful API proof of concept
-The gloal is to explore node.js for building RESTful services
+The goal is to explore node.js for building RESTful services.
+
+Step 1 - Download and install Node.js (using Windows Installer).
 
 ##Hello, World
 **helloworld.js** is the fist script to check [node.js](http://nodejs.org/) installation.
