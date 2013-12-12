@@ -23,11 +23,13 @@ and then start the application
 
 The application is now running at [http://localhost:8888/](http://localhost:8888/) and can serve GET requests in JSON
 
-Using attached entityPOST.xml, generate some data (e.g. using some Http REST client)
+Using attached entityPOST.xml, generate some data (e.g. using some Http REST client) via HTTP POST.
 
-- [http://localhost:8888/entity/23](http://localhost:8888/entity/23)
-- [http://localhost:8888/entity/91](http://localhost:8888/entity/91)
-- etc...
+Query a list of entities http://localhost:8888/entity
+
+Query a particular entity:
+
+- [http://localhost:8888/entity/23](http://localhost:8888/entity/<ID>)
 
 just echoing back the provided entity code
 
