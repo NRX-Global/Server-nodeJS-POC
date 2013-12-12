@@ -1,11 +1,23 @@
 var mongoose = require('mongoose');
 
+var locationAttributeSchema = mongoose.Schema({
+        // fields
+        name: String,
+        value: mongoose.Schema.Types.Mixed
+    },
+    {   // options
+        _id: false,
+        'versionKey': false
+    }
+);
+
 var locationEntitySchema = mongoose.Schema({
-    erpCode: String,
+    erpCode: { type: String, unique: true },
     name: String,
     tag: String,
     serialNumber: String,
     status: { type: String, enum: ['design','active','inactive'] },
+    attributes: { type: [locationAttributeSchema]},
     creationDate: { type: Date, default: Date.now },
     modificationDate: { type: Date, default: Date.now }
 });
