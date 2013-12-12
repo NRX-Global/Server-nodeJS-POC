@@ -63,3 +63,4 @@ local computer with default port setting).
 
 As a next step PUT/DELETE were implemented and now it's a fully functional service to create, retrieve, update and delete an entity.
 
+**[View commit](https://github.com/akutin/node-POC/commit/d0dad8a3a372bd1438c2ec5eb5abd258e8b736e7)**
