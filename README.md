@@ -64,3 +64,31 @@ local computer with default port setting).
 As a next step PUT/DELETE were implemented and now it's a fully functional service to create, retrieve, update and delete an entity.
 
 **[View commit](https://github.com/akutin/node-POC/commit/d0dad8a3a372bd1438c2ec5eb5abd258e8b736e7)**
+
+## Add a collection as a field
+
+First, added a new service mapping to retrieve a collection of locations. Next, added a field to represent a collection of attributes as:
+
+```JavaScript
+    [ { "name": "A1", "value": "V1"}, { "name": "A2", "value": 200.01} ]
+```
+
+One way to represent such a collection was:
+```JavaScript
+    var locationEntitySchema = mongoose.Schema({
+        erpCode: { type: String, unique: true },
+
+        ...
+
+        attributes: [{}],
+
+        ...
+    });
+```
+
+and the other that I went for was to create a subType to represent each element of the collection.
+
+The new field is available in the API for create/retrieve and update.
+
+**[View commit](https://github.com/akutin/node-POC/commit/d7072e1018cb97cecc57f79adf2c140ce0a7444d)**
+
