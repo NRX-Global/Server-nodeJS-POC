@@ -53,7 +53,7 @@ and returns
 
 **[View commit](https://github.com/akutin/node-POC/commit/83e4d02276e2cd37cd61270a05ed7cbebe05fbc9)**
 
-## Persistence with MongoDB
+### Persistence with MongoDB
 
 [Mongoose](http://mongoosejs.com/) is a MongoDB driver and object modelling module.
 
@@ -65,7 +65,7 @@ As a next step PUT/DELETE were implemented and now it's a fully functional servi
 
 **[View commit](https://github.com/akutin/node-POC/commit/d0dad8a3a372bd1438c2ec5eb5abd258e8b736e7)**
 
-## Add a collection as a field
+### Add a collection as a field
 
 First, added a new service mapping to retrieve a collection of locations. Next, added a field to represent a collection of attributes as:
 
@@ -91,4 +91,19 @@ and the other that I went for was to create a subType to represent each element 
 The new field is available in the API for create/retrieve and update.
 
 **[View commit](https://github.com/akutin/node-POC/commit/d7072e1018cb97cecc57f79adf2c140ce0a7444d)**
+
+## Kraken.js framework for application structure and UI
+
+So far Restify helped to build a headless REST API. Thought Restify lets define paths to serve static context to
+serve html/css and client side JavaScript files the front end application would be quite decoupled from the server side code.
+Kraken helps you to bind the two worlds together.
+
+    $npm install -g generator-kraken
+    $yo kraken
+
+Kraken is one of Node.js modules, the above will install the suite globally and create a project stub.
+
+
+
+
 
