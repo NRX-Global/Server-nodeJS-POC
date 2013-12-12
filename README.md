@@ -21,8 +21,8 @@ and then start the application
 
 The application is now running at [http://localhost:8888/](http://localhost:8888/) and can serve GET requests in JSON
 
-- [http://localhost:8888/entity/23](http://localhost:8888/entity/23)
-- [http://localhost:8888/entity/91](http://localhost:8888/entity/91)
+- [http://localhost:8888/entity/52a8e68ddbd887088e000002](http://localhost:8888/entity/52a8e68ddbd887088e000002)
+- [http://localhost:8888/entity/52a8e573dbd887088e000001](http://localhost:8888/entity/52a8e573dbd887088e000001)
 - etc...
 
 just echoing back the provided entity code
