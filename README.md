@@ -103,6 +103,21 @@ Kraken helps you to bind the two worlds together.
 
 Kraken is one of Node.js modules, the above will install the suite globally and create a project stub.
 
+**[Commit of kraken stub](https://github.com/akutin/node-POC/commit/95afd152f7ba1ec0cf72b478af7b5408e51f31af)**
+
+```kraken\controllers\locations.js``` adds a controller that maps UI URL and API URLs. UI pages are template based with [Dust](http://akdubya.github.io/dustjs/)
+One of the points that stopped me for a while was that it needs two files for each view ```kraken/locales/US/en/locations.properties``` and ```kraken/public/templates/locations.dust``` to be able
+ to render the view in a browser.
+
+Another part is localization with [Makara](https://github.com/paypal/makara) and a middleware code ```kraken/lib/language.js``` statically sets
+the locale to US_en for now.
+
+All together can render the basic view.
+
+**[View commit](https://github.com/akutin/node-POC/commit/75416ae895ac8b5d36eccb3a42cb3a6c570bd5d1)**
+
+
+
 
 
 
