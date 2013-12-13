@@ -18,15 +18,20 @@ module.exports.adapters = {
   // in a model definition, 'default' will be used.
   'default': 'disk',
 
+  // In-memory adapter for DEVELOPMENT ONLY
+  memory: {
+    module: 'sails-memory'
+  },
+
   // Persistent adapter for DEVELOPMENT ONLY
-  // (data is preserved when the server shuts down)
+  // (data IS preserved when the server shuts down)
   disk: {
     module: 'sails-disk'
   },
 
   // MySQL is the world's most popular relational database.
   // Learn more: http://en.wikipedia.org/wiki/MySQL
-  myLocalMySQLDatabase: {
+  mysql: {
 
     module: 'sails-mysql',
     host: 'YOUR_MYSQL_SERVER_HOSTNAME_OR_IP_ADDRESS',
