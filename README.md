@@ -116,6 +116,8 @@ All together can render the basic view.
 
 **[View commit](https://github.com/akutin/node-POC/commit/75416ae895ac8b5d36eccb3a42cb3a6c570bd5d1)**
 
+And **[the template](https://github.com/akutin/node-POC/commit/b1cad6505de806ec433159a381f5dbde1f3e4543)**
+
 
 
 
