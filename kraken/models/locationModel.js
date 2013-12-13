@@ -47,6 +47,12 @@ if (!locationEntitySchema.options.toObject) {
 locationEntitySchema.options.toObject.transform = function (doc, ret, options) {
     ret.code = ret._id;
     delete ret._id;
+    delete ret.__v;
+};
+
+// static methods
+locationEntitySchema.statics.toObjectId = function(code) {
+    return new mongoose.Types.ObjectId(code);
 };
 
 var locationEntity = mongoose.model('LocationEntity', locationEntitySchema);

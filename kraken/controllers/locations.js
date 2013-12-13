@@ -2,11 +2,11 @@ var LocationEntity = require('../models/locationModel');
 
 module.exports = function (server) {
     /**
-     * Retrieve a list
+     * Retrieve a list - UI
      */
     server.get('/entity', function (req, res) {
 
-        Product.find(function (err, list) {
+        LocationEntity.find(function (err, list) {
             if (err) {
                 console.log(err);
             }
@@ -15,16 +15,51 @@ module.exports = function (server) {
             {
                 locations: list
             };
-            res.render('products', model);
+
+            res.render('locations', model);
         });
 
     });
 
 
     /**
+     * Retrieve a list - API
+     */
+    server.get('/api/entity', function (req, res) {
+
+        LocationEntity.find(function (err, list) {
+            if (err) {
+                console.log(err);
+            }
+
+            if( !list) {
+                list = [];
+            }
+            res.send( list.map( function(data) { return data.toObject()}));
+        });
+
+    });
+
+    /**
+     * Retrieve one - API
+     */
+    server.get('/api/entity/:code', function (req, res) {
+        LocationEntity.findById(  LocationEntity.toObjectId( req.params.code), function (err, data) {
+            if(err) {
+                console.log( err)
+            }
+            if( data) {
+                res.send( data.toObject());
+            } else {
+                res.send( 404);
+            }
+        });
+    });
+
+    /**
      * Add
      */
-    server.post('/entity', function (req, res) {
+    server.post('/api/entity', function (req, res) {
         new LocationEntity().updateFrom( req.body).save( function(err, data) {
             if( err) {
                 console.log( err);
@@ -37,7 +72,7 @@ module.exports = function (server) {
     /**
      * Delete
      */
-    server.delete('/products', function (req, res) {
+    server.delete('/api/entity/:code', function (req, res) {
         console.log( "Delete " + req.params.code);
 
         LocationEntity.findById(  new mongoose.Types.ObjectId(req.params.code), function (err, data) {
@@ -63,7 +98,7 @@ module.exports = function (server) {
     /**
      * Update
      */
-    server.put('/products', function (req, res) {
+    server.put('/api/entity/:code', function (req, res) {
         console.log('PUT received. Ignoring.');
     });
 

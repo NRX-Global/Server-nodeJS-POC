@@ -6,14 +6,14 @@
     "databaseConfig": {
         "host": "localhost",
         "database": "entity"
-    }
+    },
 //
 // "host": "localhost",
 //
-// "i18n": {
-//     "fallback": "en-US",
-//     "contentPath": "path:./locales"
-// },
+    "i18n": {
+         "fallback": "en-US",
+         "contentPath": "path:./locales"
+    }
 //
 // "routes": {
 //     "routePath": "path:./controllers"
