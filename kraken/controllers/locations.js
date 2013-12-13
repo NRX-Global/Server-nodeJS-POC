@@ -57,7 +57,7 @@ module.exports = function (server) {
     });
 
     /**
-     * Add
+     * Add - API
      */
     server.post('/api/entity', function (req, res) {
         new LocationEntity().updateFrom( req.body).save( function(err, data) {
@@ -70,12 +70,24 @@ module.exports = function (server) {
     });
 
     /**
+     * Add - UI
+     */
+    server.post('/entity', function (req, res) {
+        new LocationEntity().updateFrom( req.body).save( function(err, data) {
+            if( err) {
+                console.log( err);
+            }
+            res.redirect( "/entity");
+        });
+    });
+
+    /**
      * Delete
      */
     server.delete('/api/entity/:code', function (req, res) {
         console.log( "Delete " + req.params.code);
 
-        LocationEntity.findById(  new mongoose.Types.ObjectId(req.params.code), function (err, data) {
+        LocationEntity.findById(  LocationEntity.toObjectId(req.params.code), function (err, data) {
             if(err) {
                 console.log( err)
                 return next( err);
@@ -87,6 +99,30 @@ module.exports = function (server) {
                         return next( err);
                     }
                     res.send( 200);
+                });
+            } else {
+                res.send( 404);
+            }
+        })
+    });
+
+
+    /**
+     * Delete UI
+     */
+    server.delete('/entity/:code', function (req, res) {
+        console.log( "Delete " + req.params.code);
+
+        LocationEntity.findById(  LocationEntity.toObjectId(req.params.code), function (err, data) {
+            if(err) {
+                console.log( err)
+            }
+            if( data) {
+                data.remove( function(err) {
+                    if( err) {
+                        console.log( err);
+                    }
+                    res.redirect( "/entity");
                 });
             } else {
                 res.send( 404);
