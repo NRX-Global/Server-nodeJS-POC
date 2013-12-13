@@ -1,0 +1,19 @@
+{>"layouts/master" /}
+
+{<body}
+    <h1>{@pre type="content" key="entity.title"/}</h1>
+    {?locations}
+        <ul class="nm-np inline">
+            {#locations}
+                <li>
+                    <div class="nm-np">{.erpCode}</div>
+                    <div class="nm-np">{.name}</div>
+                    <div class="nm-np">{.tag}</div>
+                    <div class="nm-np">{.serialNumber}</div>
+                </li>
+            {/locations}
+        </ul>
+    {:else}
+
+    {/locations}
+{/body}
