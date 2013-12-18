@@ -29,7 +29,8 @@ Ext.define('EntityClient.controller.EntityController', {
                             record.commit();
                         });
                     } else {
-                        self.connection.socket.post( '/LocationEntity', record.getData(), function() {
+                        self.connection.socket.post( '/LocationEntity', record.getData(), function( data) {
+                            record.set( data);
                             record.commit();
                         });
                     }
@@ -68,8 +69,10 @@ Ext.define('EntityClient.controller.EntityController', {
             },
             'entitygrid #reload': {
                 click: function() {
+                    self.getEntitiesStore().fireEvent('beforeload', self.getEntitiesStore())
                     self.getEntitiesStore().removeAll();
                     self.connection.socket.get( '/LocationEntity', {}, function( data) {
+                        self.getEntitiesStore().fireEvent('load', self.getEntitiesStore())
                         console.log( "Entity list of " + data.length);
                         self.getEntitiesStore().add( data);
                     });
@@ -84,6 +87,7 @@ Ext.define('EntityClient.controller.EntityController', {
         var self = this
 
         console.log( "Create Socket.IO");
+        self.getEntitiesStore().fireEvent('beforeload', self.getEntitiesStore())
 
         self.connection = new Ext.ux.SocketIO({
             host: 'localhost',
@@ -95,6 +99,7 @@ Ext.define('EntityClient.controller.EntityController', {
 
             self.connection.socket.get( '/LocationEntity', {}, function( data) {
                 console.log( "Entity list of " + data.length);
+                self.getEntitiesStore().fireEvent('load', self.getEntitiesStore())
                 self.getEntitiesStore().add( data);
             });
 
