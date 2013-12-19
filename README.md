@@ -208,6 +208,10 @@ The application was deployed to a cloud instance with [these instructions](http:
 a free tiny AWS cloud instance is that they run a revers proxy in front of the server that doesn't let clients to establish efficient
  WebSocket permanent connection. But thanks to sails.js and socket.io it still works with a fallback to pull requests.
 
+### ExtJS from Sencha CDN
+
+A [small change](https://github.com/akutin/node-POC/commit/428e06f89201a3cf0d247fbedfe1fd3dc1bf7ef8) to let ExtJS come from CDN.
+
 
 
 
