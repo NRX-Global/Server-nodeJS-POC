@@ -59,7 +59,7 @@ Ext.define('EntityClient.controller.EntityController', {
                     if (selections.length > 0) {
                         Ext.Array.each( selections, function( entity) {
                             self.connection.socket.delete( '/LocationEntity/' + entity.get('id'), function() {
-                                console.log( "Removed", entity);
+                                window.console && console.log( "Removed", entity);
                                 self.getEntitiesStore().remove( entity);
                             })
                         })
@@ -73,7 +73,7 @@ Ext.define('EntityClient.controller.EntityController', {
                     self.getEntitiesStore().removeAll();
                     self.connection.socket.get( '/LocationEntity', {}, function( data) {
                         self.getEntitiesStore().fireEvent('load', self.getEntitiesStore())
-                        console.log( "Entity list of " + data.length);
+                        window.console && console.log( "Entity list of " + data.length);
                         self.getEntitiesStore().add( data);
                     });
                 }
@@ -86,26 +86,25 @@ Ext.define('EntityClient.controller.EntityController', {
     onLaunch: function() {
         var self = this
 
-        console.log( "Create Socket.IO");
         self.getEntitiesStore().fireEvent('beforeload', self.getEntitiesStore())
 
         self.connection = new Ext.ux.SocketIO({
-            host: 'localhost',
-            port: 8888
+            host: location.hostname,
+            port: (Ext.isEmpty( location.port) ? "80" : location.port)
         });
 
         self.connection.socket.on( 'connect', function() {
-            console.log( "Connected to server");
+            window.console && console.log( "Connected to Socket.IO server");
 
             self.connection.socket.get( '/LocationEntity', {}, function( data) {
-                console.log( "Entity list of " + data.length);
+                window.console && console.log( "Entity list of " + data.length);
                 self.getEntitiesStore().fireEvent('load', self.getEntitiesStore())
                 self.getEntitiesStore().add( data);
             });
 
             self.connection.socket.on('message', function(message){
                 // handle updates from the server
-                console.log( "Message", message);
+                window.console && console.log( "Message", message);
                 var record = self.getEntitiesStore().getById( message.id);
                 if( record) {
                     if( message.verb === 'update') {
