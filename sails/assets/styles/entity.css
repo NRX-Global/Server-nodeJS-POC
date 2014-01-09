@@ -1,0 +1,11 @@
+.icon-add {
+    background-image: url(../images/add.gif) !important;
+}
+
+.icon-reload {
+    background-image: url(../images/refresh.gif) !important;
+}
+
+.icon-delete {
+    background-image: url(../images/remove.gif) !important;
+}

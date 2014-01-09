@@ -27,12 +27,16 @@
   </component>
   <component name="Encoding" useUTFGuessing="true" native2AsciiForPropertiesFiles="false" />
   <component name="JavaScriptLibraryMappings">
+    <file url="file://$PROJECT_DIR$/kraken" libraries="{Node.js Dependencies for kraken}" />
     <file url="file://$PROJECT_DIR$/restify" libraries="{Node.js Dependencies for restify}" />
+    <file url="file://$PROJECT_DIR$/sails" libraries="{Node.js Dependencies for sails}" />
     <includedPredefinedLibrary name="Node.js Globals" />
   </component>
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/kraken/kraken.iml" filepath="$PROJECT_DIR$/kraken/kraken.iml" />
       <module fileurl="file://$PROJECT_DIR$/restify/restify.iml" filepath="$PROJECT_DIR$/restify/restify.iml" />
+      <module fileurl="file://$PROJECT_DIR$/sails/sails.iml" filepath="$PROJECT_DIR$/sails/sails.iml" />
     </modules>
   </component>
   <component name="ProjectRootManager" version="2" languageLevel="JDK_1_6" assert-keyword="true" jdk-15="true">
@@ -42,6 +46,18 @@
     <mapping directory="$PROJECT_DIR$" vcs="Git" />
   </component>
   <component name="libraryTable">
+    <library name="Node.js Dependencies for kraken" type="javaScript">
+      <properties>
+        <sourceFilesUrls>
+          <item url="file://$PROJECT_DIR$/kraken/node_modules" />
+        </sourceFilesUrls>
+      </properties>
+      <CLASSES>
+        <root url="file://$PROJECT_DIR$/kraken/node_modules" />
+      </CLASSES>
+      <JAVADOC />
+      <SOURCES />
+    </library>
     <library name="Node.js Dependencies for restify" type="javaScript">
       <properties>
         <sourceFilesUrls>
@@ -50,6 +66,18 @@
       </properties>
       <CLASSES>
         <root url="file://$PROJECT_DIR$/restify/node_modules" />
+      </CLASSES>
+      <JAVADOC />
+      <SOURCES />
+    </library>
+    <library name="Node.js Dependencies for sails" type="javaScript">
+      <properties>
+        <sourceFilesUrls>
+          <item url="file://$PROJECT_DIR$/sails/node_modules" />
+        </sourceFilesUrls>
+      </properties>
+      <CLASSES>
+        <root url="file://$PROJECT_DIR$/sails/node_modules" />
       </CLASSES>
       <JAVADOC />
       <SOURCES />

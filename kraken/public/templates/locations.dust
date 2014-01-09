@@ -1,0 +1,35 @@
+{>"layouts/master" /}
+
+{<body}
+    <h1>{@pre type="content" key="entity.title"/}</h1>
+    {?locations}
+        <table class="entity" border="0">
+            <tr>
+                <th>{@pre type="content" key="entity.erpCode"/}</th>
+                <th>{@pre type="content" key="entity.name"/}</th>
+                <th>{@pre type="content" key="entity.tag"/}</th>
+                <th>{@pre type="content" key="entity.serialNumber"/}</th>
+                <th class="tools">&nbsp;</th>
+            </tr>
+            {#locations}
+                <tr>
+                    <td>{.erpCode}</td>
+                    <td>{.name}</td>
+                    <td>{.tag}</td>
+                    <td>{.serialNumber}</td>
+                    <td class="tools">
+                        <form action="/entity/{._id}" method="post">
+                            <input type="image" src="/img/delete.png" width="16" height="16" alt="Delete"/>
+                            <input type="hidden" name="_method" value="delete"/>
+                        </form>
+                        <form action="/entity/{._id}" method="post">
+                            <input type="image" src="/img/edit.png" width="16" height="16" alt="Edit"/>
+                        </form>
+                    </td>
+                </tr>
+            {/locations}
+        </table>
+    {:else}
+
+    {/locations}
+{/body}
